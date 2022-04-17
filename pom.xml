@@ -36,9 +36,9 @@
 		  <groupId>javax.servlet</groupId>
 		  <artifactId>jstl</artifactId>
 		 </dependency>
-	<!--  추가 라이브러리 끝 -->
+		<!--  추가 라이브러리 끝 -->
 		
-		
+		<!--  JPA 사용 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -50,11 +50,14 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		-->
+		
+		<!-- spring mvc를 이용한 restful 서비스를 개발 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		
+		<!--  코드 변경시 자동으로 재시작 기능 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -62,22 +65,27 @@
 			<optional>true</optional>
 		</dependency>
 		
+		<!--  mysql connector -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		
+		<!--  lombok 설정 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
+		<!-- JUNIT, Hamcrest, Mockito를 포함하는 스프링 어플리케이션 개발 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<!--  
 		<dependency>
 			<groupId>org.springframework.security</groupId>
