@@ -19,10 +19,7 @@ public class UserApiController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private HttpSession session;
-	
-	@PostMapping("/api/user")
+	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) { // username, password,  email
 		System.out.println("hi");
 		user.setRole(RoleType.USER);
@@ -30,9 +27,9 @@ public class UserApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
 	}
 	
-	// 스프링 시큐리티 이용
+	/*
 	@PostMapping("/api/user/login")
-	public ResponseDto<Integer> login(@RequestBody User user){
+	public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
 		System.out.println("login 호출됨");
 		User principal  = userService.login(user); // principal 접근주체
 		
@@ -42,4 +39,5 @@ public class UserApiController {
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
+	*/
 }
