@@ -40,7 +40,6 @@ public class Board {
 	@Lob // 대용량 데이터
 	private String content; // 섬머노트 라이브러리 이용 <html>태그 섞여서 디자인이 됨
 	
-	@ColumnDefault("0")
 	private int count; // 조회수
 	
 	@ManyToOne(fetch = FetchType.EAGER) // Many = Board, User = One 
