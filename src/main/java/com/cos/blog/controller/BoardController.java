@@ -1,14 +1,18 @@
 package com.cos.blog.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.cos.blog.config.auth.PrincipalDetail;
+
 @Controller
 public class BoardController {
-		@GetMapping({"","/"})
-		public String index() {
+
+	@GetMapping({ "", "/" })
+	public String index() {
 		// prefix : WEB-INF/views/
 		// sufix: .jsp
 		return "index";
-		}
+	}
 }
