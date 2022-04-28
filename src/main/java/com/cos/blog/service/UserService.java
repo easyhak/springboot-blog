@@ -3,6 +3,10 @@ package com.cos.blog.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +56,7 @@ public class UserService {
 		String encPassword = encoder.encode(rawPassword);
 		persistence.setPassword(encPassword);
 		persistence.setEmail(user.getEmail());
+		
 		//회원 수정 종료 = 서비스 종료 = 트랜잭션 종료 = 커밋이된다 -> 더티 체킹
 	}
 }
