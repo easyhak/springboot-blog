@@ -26,7 +26,8 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-
+			 
+	
 			<c:choose>
 				<c:when test="${empty principal}">
 					<ul class="navbar-nav">
@@ -37,7 +38,7 @@
 				<c:otherwise>
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" href="/board/saveForm">글쓰기</a></li>
-						<li class="nav-item"><a class="nav-link" href="user/updateForm">회원정보</a></li>
+						<li class="nav-item"><a class="nav-link" href="/user/updateForm">회원정보: <sec:authentication property="principal.username"/></a></li>
 						<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
 					</ul>
 				</c:otherwise>

@@ -26,7 +26,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 변수명 그대로 db에 필드를 만듬
       use-new-id-generator-mappings: false #jpa의 기본 numbering 전략을 따라가지 않음
-    show-sql: true # 실행 sql 콘솔창 출력
+    #show-sql: true # 실행 sql 콘솔창 출력
     properties:
       hibernate.format_sql: true # sql 콘솔창 출력을 format에 맞게 나온다
 
