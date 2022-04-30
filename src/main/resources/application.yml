@@ -33,3 +33,7 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+# 노출되어서는 안됨
+cos:
+  key: cos12345678!@ 
+   
