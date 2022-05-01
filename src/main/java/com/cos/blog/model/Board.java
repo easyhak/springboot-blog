@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -47,7 +49,8 @@ public class Board {
 	private User user; // DB는 오브젝트를 저장할 수 있다. FK, 자바는 오브젝트를 저장할 수 있다.
 	
 	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // mappedBy 연관관계 아니다 (FK가 아니다) DB에 컬럼 만들기 x
-	private List<Reply> reply;
+	@JsonIgnoreProperties({"board"})
+	private List<Reply> replys;
 	
 	@CreationTimestamp
 	private Timestamp createDate;

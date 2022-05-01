@@ -36,6 +36,11 @@ public class BoardService {
 	public Page<Board> 글목록(Pageable pageable) {
 		return boardRepository.findAll(pageable);
 	}
+	
+	@Transactional(readOnly = true)
+	public int 전체글수() {
+		return boardRepository.findAll().size();
+	}
 
 	@Transactional(readOnly = true)
 	public Board 글상세보기(int id) {
