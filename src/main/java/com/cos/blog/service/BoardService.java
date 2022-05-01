@@ -78,4 +78,6 @@ public class BoardService {
 		// update/flush 된다.
 
 	}
+	
+	
 }
