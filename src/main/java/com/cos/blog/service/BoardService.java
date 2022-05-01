@@ -11,9 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cos.blog.config.auth.PrincipalDetail;
 import com.cos.blog.model.Board;
+import com.cos.blog.model.Reply;
 import com.cos.blog.model.RoleType;
 import com.cos.blog.model.User;
 import com.cos.blog.repository.BoardRepository;
+import com.cos.blog.repository.ReplyRepository;
 import com.cos.blog.repository.UserRepository;
 import com.sun.nio.sctp.IllegalReceiveException;
 
@@ -23,6 +25,9 @@ public class BoardService {
 	@Autowired
 	private BoardRepository boardRepository;
 
+	@Autowired
+	private ReplyRepository replyRepository;
+	
 	@Transactional
 	public void 글쓰기(Board board, User user) {
 
@@ -82,6 +87,17 @@ public class BoardService {
 		// 해당 함수 종료시 service가 종료 될 때 transaction이 종료 이 때 dirty checking이 일어나면서 자동
 		// update/flush 된다.
 
+	}
+
+	@Transactional
+	public void 댓글쓰기(User user, int boardId, Reply requestReply) {
+		Board board = boardRepository.findById(boardId).orElseThrow(()->{
+			throw new IllegalStateException("댓글 작성 실패 게시글 아이디를 찾을 수 없습니다.");
+		});
+		requestReply.setUser(user);
+		requestReply.setBoard(board);
+		
+		replyRepository.save(requestReply);
 	}
 	
 	

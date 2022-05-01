@@ -6,8 +6,11 @@ let index = {
 		$("#btn-delete").on("click",()=>{
 			this.deleteById();
 		});
-		$("btn-update").on("click",()=>{
+		$("#btn-update").on("click",()=>{
 			this.update();
+		});
+		$("#btn-reply-save").on("click",()=>{
+			this.replySave();
 		});
 	},
 	
@@ -72,6 +75,34 @@ let index = {
 			location.href = "/";
 		}).fail(function(error){
 			alert(JSON.stringify(error))
+		});
+	},
+	
+	replySave : function(){
+		let data = {
+			boardId: $("#boardId").val(),
+			content: $("#reply-content").val()
+		}
+		console.log(data);
+		console.log("click")
+		$.ajax({
+			type: "POST",
+			url: `/api/board/${data.boardId}/reply`,
+			data: JSON.stringify(data), // json 문자열 변경 // http body데이터
+			contentType : "application/json; charset=utf-8", // body데이터가 어떤 타입인지 (mime)
+			dataType: "json"
+		}).done(function(resp){
+			console.log(resp)
+			if(resp.data == "1"){
+				alert("댓글 작성이 완료되었습니다.")
+			}
+			else{
+				alert("댓글 작성에 실패했습니다.");
+				alert(resp.data);
+			}
+			location.href = `/board/${data.boardId}`;
+		}).fail(function(error){
+			alert(JSON.stringify(error));
 		});
 	}
 }
