@@ -1,6 +1,5 @@
 package com.cos.blog.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -21,8 +20,9 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@GetMapping({ "", "/" })
-	public String index(ModelMap model,@PageableDefault(size = 3, sort = "createDate", direction = Sort.Direction.DESC, page = 1) Pageable pageable,
+	public String index(ModelMap model,@PageableDefault(size = 3, sort = "createDate", direction = Sort.Direction.DESC, page = 0) Pageable pageable,
 			@RequestParam(name="page", required = false, defaultValue = "1")int nowPage ) {
+		
 		int totalCount = boardService.전체글수();
 		int listCount = pageable.getPageSize();
 		int pageCount = 5;
@@ -38,6 +38,13 @@ public class BoardController {
 		int endPage = paging * pageCount + 5;
 		if (endPage > totalPage) {
 			endPage = totalPage;
+		}
+		
+		if(nowPage < 1) {
+			return "redirect:/";
+		}
+		else if (nowPage > totalPage) {
+			return "redirect:/?page="+totalPage;
 		}
 		// 잘못된 페이지로 가면 redirect 그리고 parameter page숫자 제대로 맞춰서 해보기 
         model.addAttribute("startPageNo", startPage);
