@@ -102,6 +102,10 @@ public class BoardService {
 		  */
 		replyRepository.save(requestReply);
 	}
+
+	public void 댓글삭제(int replyId) {
+		replyRepository.deleteById(replyId);
+	}
 	
 	
 }
