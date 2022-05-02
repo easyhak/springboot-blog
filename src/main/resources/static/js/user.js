@@ -28,8 +28,11 @@ let index = {
 			// dataType 지정 안해도 됨
 		}).done(function(resp){
 			console.log(resp)
-			alert(resp);
-			
+			if(resp.status == 500){
+				alert("회원가입에 실패했습니다.");
+			}else{
+				alert("회원가입에 성공했습니다.");
+			}
 			location.href = "/";
 		}).fail(function(error){
 			alert(JSON.stringify(error))
