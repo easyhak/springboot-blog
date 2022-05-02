@@ -96,7 +96,10 @@ public class BoardService {
 		});
 		requestReply.setUser(user);
 		requestReply.setBoard(board);
-		
+		/*
+		댓글쓰기(ReplyRequestDto replyRequestDto)
+		 replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId, replySaveRequestDto.getContent());
+		  */
 		replyRepository.save(requestReply);
 	}
 	
