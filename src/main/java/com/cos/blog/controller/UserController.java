@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,8 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
+import com.cos.blog.dto.ResponseDto;
 import com.cos.blog.model.KakaoProfile;
 import com.cos.blog.model.OAuthToken;
 import com.cos.blog.model.User;
@@ -151,5 +155,24 @@ public class UserController {
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 	
 		return "redirect:/";
+	}
+	
+	@PostMapping("/auth/joinProc")
+	public String save(@ModelAttribute("joinCommand") User user) { // username, password,  email
+		System.out.println(user);
+		try {
+			userService.회원가입(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "user/joinError";
+		}
+		ResponseDto<Integer> response = new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+		System.out.println(response);
+		if(response.getStatus() == 500) {
+			return "user/joinError";
+		}
+		else {
+			return "user/joinSuccess";
+		}
 	}
 }
