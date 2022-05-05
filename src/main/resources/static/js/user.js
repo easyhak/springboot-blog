@@ -60,6 +60,3 @@ let index = {
 }
 
 index.init();
-$(function(){
-	
-})
