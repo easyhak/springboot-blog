@@ -12,11 +12,16 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.cos.blog.dto.ResponseDto;
@@ -49,7 +54,10 @@ public class UserController {
 	}
 
 	@GetMapping("/auth/loginForm")
-	public String loginForm() {
+	public String loginForm(@CookieValue(value = "rememberId", required = false, defaultValue = "false", name = "rememberId")Boolean rememberId,
+			@CookieValue(value = "username", name="username", required = false) String username, Model model) {
+		model.addAttribute("rememberId",rememberId);
+		model.addAttribute("username",username);
 		return "user/loginForm";
 	}
 
