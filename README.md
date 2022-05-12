@@ -46,3 +46,5 @@
     Run As -> Java Application
     ```
 4) Visit [http://localhost:8000](http://localhost:8000) in your browser.
+
+## 💻실행화면
