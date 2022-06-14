@@ -13,7 +13,7 @@
 	</c:forEach>
 </div>
 <ul class="pagination justify-content-center">
-	<li class="page-item previous"><a class="page-link" href="?page=${startPageNum-5}"><<</a></li>
+	<li class="page-item previous"><a class="page-link" href="?page=${startPageNo-5}"><<</a></li>
 	<c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
 		<c:choose>
 			<c:when test="${i eq boards.number+1}">

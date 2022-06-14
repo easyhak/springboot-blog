@@ -41,8 +41,8 @@ public class BoardController {
 		}
 		
 		if(nowPage < 1) {
-			return "redirect:/";
-		}
+			return "redirect:/?page=1";
+		} 
 		else if (nowPage > totalPage) {
 			return "redirect:/?page="+totalPage;
 		}
