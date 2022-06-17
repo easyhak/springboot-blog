@@ -37,12 +37,21 @@
     Run As -> Java Application
     ```
 4) Visit [http://localhost:8000](http://localhost:8000) in your browser.
+## 💻실행화면
 
-## 💻세부구현 항목
+## 🖥세부구현 항목
+
 - Spring Security를 활용해서 로그인이 안된 사용자는 접근 못하는 항목이 있도록 함
-- OAuth를 통해서 Kakao 로그인을 구현
+- OAuth를 통해서 Kakao로그인을 구현
 - view는 jsp를 이용해서 만들음
 - Bootstrap4를 이용해서 꾸밈
-- javascript ajax   
-- form-check  
-- view page made by jsp   
+- pagination
+- CRUD
+- 회원가입 form-check 
+
+<div align="center">
+             
+![password-check](https://user-images.githubusercontent.com/48908552/174327734-432f2663-4465-47a9-97a8-f0b08f52a4d1.png)
+![email-check](https://user-images.githubusercontent.com/48908552/174327743-aeaba59c-8fe3-49b3-bd29-f25d98b0fe91.png)
+             
+</div>
