@@ -3,23 +3,14 @@
 
 스프링부트로 블로그 만들기 
 
-- spring security
-- oauth login을 통해서 kakao 로그인 구현    
-- ajax를 통해 blahbbla  
-- using jpa   
-- bootstrap4   
-- javascript ajax   
-- form-check  
-- view page made by jsp   
-
-
 
 ## 🪓개발환경
 ### Back-End 
-- SpringBoot 2.5.12
-- MySQL 8.0.28
-### Front-End
+- SpringBoot 2.5
+- MySQL 8
+### View
 - Bootstrap4
+- jsp
 ### Developer Tool
 - Visual Studio Code
 - STS4
@@ -47,4 +38,11 @@
     ```
 4) Visit [http://localhost:8000](http://localhost:8000) in your browser.
 
-## 💻실행화면
+## 💻세부구현 항목
+- Spring Security를 활용해서 로그인이 안된 사용자는 접근 못하는 항목이 있도록 함
+- OAuth를 통해서 Kakao 로그인을 구현
+- view는 jsp를 이용해서 만들음
+- Bootstrap4를 이용해서 꾸밈
+- javascript ajax   
+- form-check  
+- view page made by jsp   
